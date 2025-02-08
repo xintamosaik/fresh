@@ -504,8 +504,8 @@ const salads = {
 
 const i18n = {
     header: {
-        de: "Säsonaler Nahrunsmittelkalender",
-        en: "Seasonal food calendar",
+        de: "Frisch | Säsonal",
+        en: "Fresh | Seasonal",
     },
     region: {
         de: "Region",
