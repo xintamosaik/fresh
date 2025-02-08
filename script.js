@@ -528,6 +528,13 @@ const displayCategory = (category, container, month, lang) => {
         container.appendChild(element);
     });
 
+    const regionalDisclaimer = document.createElement('hr');
+    regionalDisclaimer.style.color = 'grey';
+    regionalDisclaimer.style.margin = '10px 0';
+
+    regionalDisclaimer.style.border = '1px solid #eee';
+
+    container.appendChild(regionalDisclaimer);
     const regionalItems = getRegional(category, month, lang);
     regionalItems.forEach(item => {
         const element = document.createElement('p');
