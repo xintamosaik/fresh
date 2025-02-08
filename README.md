@@ -1,6 +1,7 @@
 # Just Fresh
 
 visit (/fresh)[https://xintamosaik.github.io/fresh/]
+[fresh/](https://xintamosaik.github.io/fresh/)
 
 A simple seasonal food calendar for Germany. This project provides an easy way to check which vegetables, fruits, and salads are fresh and regional in any given month.
 
