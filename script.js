@@ -502,68 +502,40 @@ const salads = {
     }
 };
 
+let lang = window.navigator.language.split('-')[0];
+
 const currentMonth = new Date().getMonth() + 1;
 const currentMonthName = new Date().toLocaleString('en-US', { month: 'long' });
 
 const getFresh = (category, month, lang) => Object.values(category).filter(item => item.fresh.includes(month)).map(item => item.name[lang]);
 const getRegional = (category, month, lang) => Object.values(category).filter(item => item.regional && item.regional.includes(month)).map(item => item.name[lang]);
 
-const lang = window.navigator.language.split('-')[0];
-const whenDOMLoaded = () => {
-    const vegetableOutput = window.vegetables;
-    const freshVeggies = getFresh(vegetables, currentMonth, lang);
-    console.log(vegetableOutput);
-    freshVeggies.forEach(veggie => {
-        const veggieElement = document.createElement('p');
-        veggieElement.textContent = veggie;
-        vegetableOutput.appendChild(veggieElement);
-    })
 
-    const regionalVeggies = getRegional(vegetables, currentMonth, lang);
-    console.log(regionalVeggies);
-    regionalVeggies.forEach(veggie => {
-        const veggieElement = document.createElement('p');
-        veggieElement.style.color = 'grey';
-        veggieElement.textContent = veggie;
-        vegetableOutput.appendChild(veggieElement);
-    })
+console.log({lang})
+const displayCategory = (category, container, month, lang) => {
+    container.innerHTML = ""; // Clear previous content
 
+    const freshItems = getFresh(category, month, lang);
+    freshItems.forEach(item => {
+        const element = document.createElement('p');
+        element.textContent = item;
+        container.appendChild(element);
+    });
 
-    const fruitOutput = window.fruits;
-    const freshFruits = getFresh(fruits, currentMonth, lang);
-    console.log(fruitOutput);
-    freshFruits.forEach(fruit => {
-        const fruitElement = document.createElement('p');
-        fruitElement.textContent = fruit;
-        document.querySelector('#fruits').appendChild(fruitElement);
-    })
-
-    const regionalFruits = getRegional(fruits, currentMonth, lang);
-    console.log(regionalFruits);
-    regionalFruits.forEach(fruit => {
-        const fruitElement = document.createElement('p');
-        fruitElement.style.color = 'grey';
-        fruitElement.textContent = fruit;
-        document.querySelector('#fruits').appendChild(fruitElement);
-    })
-
-    const saladOutput = window.salads;
-    const freshSalads = getFresh(salads, currentMonth, lang);
-    console.log(saladOutput);
-    freshSalads.forEach(salad => {
-        const saladElement = document.createElement('p');
-        saladElement.textContent = salad;
-        document.querySelector('#salads').appendChild(saladElement);
-    })
-
-    const regionalSalads = getRegional(salads, currentMonth, lang);
-    console.log(regionalSalads);
-    regionalSalads.forEach(salad => {
-        const saladElement = document.createElement('p');
-        saladElement.style.color = 'grey';
-        saladElement.textContent = salad;
-        document.querySelector('#salads').appendChild(saladElement);
-    })
-
+    const regionalItems = getRegional(category, month, lang);
+    regionalItems.forEach(item => {
+        const element = document.createElement('p');
+        element.style.color = 'grey';
+        element.textContent = item;
+        container.appendChild(element);
+    });
 };
-window.addEventListener('DOMContentLoaded', whenDOMLoaded);
+
+
+const refresh = () => {
+    displayCategory(vegetables, window.vegetables, currentMonth, lang);
+    displayCategory(fruits, window.fruits, currentMonth, lang);
+    displayCategory(salads, window.salads, currentMonth, lang);
+};
+
+window.addEventListener('DOMContentLoaded', refresh);
