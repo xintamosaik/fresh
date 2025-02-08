@@ -4,8 +4,10 @@ html {
 
 body {
     font-family: sans-serif;
-    line-height: 1.6; /* Improves readability */
-    padding: 1rem; /* Adds breathing room */
+    line-height: 1.6;
+    /* Improves readability */
+    padding: 1rem;
+    /* Adds breathing room */
 }
 
 h1 {
@@ -25,8 +27,21 @@ output {
 
 #language {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1ch;
+}
+
+#month {
+    display: flex;
+    justify-content: space-between;
+    gap: 1ch;
+}
+
+#monthPopover div{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 1ch;
+    padding: 1ch;
 }
 
 button {
