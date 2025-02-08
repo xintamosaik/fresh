@@ -15,12 +15,9 @@ function switchLanguage(event) {
 
 function translateWords() {
     const translatables = document.querySelectorAll("[data-i18n]")
-    console.log(translatables)
+
     Object.values(translatables).forEach(translateable => {
         const keyword = translateable.dataset.i18n
-        console.log(keyword)
-        console.log(i18n[keyword])
-        console.log(i18n[keyword][lang])
         translateable.innerText = i18n[keyword][lang]
     })
 }
@@ -56,8 +53,8 @@ function selectMonth(event) {
         return;
     }
 
-    selectedDate.setMonth(event.target.value)
-    selectedMonth = selectedDate.getMonth()
+    selectedDate.setMonth(event.target.value - 1)
+    selectedMonth = selectedDate.getMonth() + 1
     refreshMonth()
 }
 
