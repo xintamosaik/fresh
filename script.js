@@ -37,7 +37,37 @@ let selectedDate = today;
 const currentMonth = today.getMonth() + 1;
 let selectedMonth = currentMonth;
 
-let selectedMonthName = (selectedDate) =>  selectedDate.toLocaleString(languages[lang], { month: 'long' });
+let selectedMonthName = (selectedDate) => selectedDate.toLocaleString(languages[lang], { month: 'long' });
+
+function selectMonth(event) {
+    if ("BUTTON" !== event.target.tagName) {
+        return;
+    }
+
+    selectedDate.setMonth(event.target.value)
+    selectedMonth = selectedDate.getMonth()
+    refreshMonth()
+}
+
+
+const refreshMontSelector = () => {
+    window.monthPopoverContainer.innerHTML = ''
+
+    Object.entries(months).forEach(([key, value]) => {
+        console.log(key, value);
+
+        const currentDate = new Date()
+        currentDate.setMonth(value - 1)
+        console.log(currentDate)
+
+        const monthButton = document.createElement('button')
+        monthButton.value = value
+        monthButton.innerText = selectedMonthName(currentDate)
+
+        window.monthPopoverContainer.appendChild(monthButton);
+    })
+
+}
 /**
  * Output
  */
@@ -69,29 +99,20 @@ const displayCategory = (category, container, month, lang) => {
         container.appendChild(element);
     });
 };
-const refreshMontSelector = () => {
-    window.monthPopoverContainer.innerHTML = ''
- 
-    Object.entries(months).forEach(([key, value]) => {
-        const currentDate = new Date()
-        currentDate.setMonth(value -1)
-        console.log(currentDate)
-        console.log(key, value);
-        const monthButton = document.createElement('button')
-        monthButton.value = value
-        monthButton.innerText = selectedMonthName(currentDate)
-        window.monthPopoverContainer.appendChild(monthButton);
-    })
-    
-}
 
-const refresh = () => {
+const refreshMonth = () => {
+    window.toggleMonthSelector.innerHTML = selectedMonthName(selectedDate);
+    displayCategory(vegetables, window.vegetables, selectedMonth, lang);
+    displayCategory(fruits, window.fruits, selectedMonth, lang);
+    displayCategory(salads, window.salads, selectedMonth, lang);
+}
+const refreshComplete = () => {
 
     window.toggleMonthSelector.innerHTML = selectedMonthName(selectedDate);
     refreshMontSelector()
-    displayCategory(vegetables, window.vegetables, currentMonth, lang);
-    displayCategory(fruits, window.fruits, currentMonth, lang);
-    displayCategory(salads, window.salads, currentMonth, lang);
+    displayCategory(vegetables, window.vegetables, selectedMonth, lang);
+    displayCategory(fruits, window.fruits, selectedMonth, lang);
+    displayCategory(salads, window.salads, selectedMonth, lang);
 };
 
-window.addEventListener('DOMContentLoaded', refresh);
+window.addEventListener('DOMContentLoaded', refreshComplete);

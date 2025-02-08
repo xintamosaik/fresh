@@ -24,8 +24,9 @@
     <h1>
         German seasonal food calendar
     </h1>
+
     <h2 id="language">
-        <span class="i18n">Language</span>
+        <span data-i18n="language">Language</span>
         <div style="display:flex; gap: 1ch;">
             <button id="languageToggle" value="en" onclick="switchLanguage(event)">EN</button>
             <button id="languageToggle" value="de" onclick="switchLanguage(event)">DE</button>
@@ -34,24 +35,28 @@
 
     <h2 id="month">
         <dialog popover id="monthPopover">
-            <div id="monthPopoverContainer"></div>
+            <div id="monthPopoverContainer" onclick="selectMonth(event)"></div>
         </dialog>
 
-        <span class="i18n">Month</span>
+        <span data-i18n= "month" >Month</span>
         <button id="toggleMonthSelector" popovertarget="monthPopover"></button>
     </h2>
 
-
-
-    <h2><span class="i18n">Vegetables</span></h2>
+    <h2>
+        <span data-i18n="vegetables" >Vegetables</span>
+    </h2>
 
     <output id="vegetables"></output>
 
-    <h2><span class="i18n">Fruits</span></h2>
+    <h2>
+        <span data-i18n="fruits" >Fruits</span>
+    </h2>
 
     <output id="fruits"></output>
 
-    <h2><span class="i18n">Salads</span></h2>
+    <h2>
+        <span data-i18n="salads" >Salads</span>
+    </h2>
     <output id="salads"></output>
 
 </body>

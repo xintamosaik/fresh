@@ -5,9 +5,14 @@ html {
 body {
     font-family: sans-serif;
     line-height: 1.6;
-    /* Improves readability */
     padding: 1rem;
-    /* Adds breathing room */
+    width: min(100%, 60ch);
+    margin: 0 auto;
+ 
+}
+
+dialog {
+    width: min(100%, 40ch);
 }
 
 h1 {

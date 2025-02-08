@@ -501,3 +501,26 @@ const salads = {
         fresh: [4, 5, 6, 7, 8, 9],
     }
 };
+
+const i18n = {
+    language: {
+        de: "Sprache",
+        en: "Language",
+    },
+    month: {
+        de: "Monat",
+        en: "Month"
+    },
+    vegetables: {
+        de: "Gemüse",
+        en: "Vegetables"
+    },
+    fruits: {
+        de: "Früchte",
+        en: "Fruits"
+    },
+    salads: {
+        de: "Salate",
+        en: "Salads"
+    }
+}
