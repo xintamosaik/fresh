@@ -4,4 +4,42 @@ html {
 
 body {
     font-family: sans-serif;
+    line-height: 1.6; /* Improves readability */
+    padding: 1rem; /* Adds breathing room */
+}
+
+h1 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+output {
+    display: block;
+    margin-bottom: 2rem;
+}
+
+#language {
+    display: flex;
+    justify-content: center;
+    gap: 1ch;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background: hotpink;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: deeppink;
 }

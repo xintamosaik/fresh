@@ -502,8 +502,14 @@ const salads = {
     }
 };
 
-let lang = window.navigator.language.split('-')[0];
 
+let lang = navigator.language.startsWith("de") ? "de" : "en";
+
+console.log({lang})
+function switchLanguage(event) {
+    lang = event.target.value
+    refresh();
+}
 const currentMonth = new Date().getMonth() + 1;
 const currentMonthName = new Date().toLocaleString('en-US', { month: 'long' });
 
@@ -511,7 +517,7 @@ const getFresh = (category, month, lang) => Object.values(category).filter(item 
 const getRegional = (category, month, lang) => Object.values(category).filter(item => item.regional && item.regional.includes(month)).map(item => item.name[lang]);
 
 
-console.log({lang})
+
 const displayCategory = (category, container, month, lang) => {
     container.innerHTML = ""; // Clear previous content
 

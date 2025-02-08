@@ -4,16 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="seasonal, regional, vegetables, fruits, salads, food, calendar">
+    <meta property="description" content="Find out what vegetables, fruits, and salads are in season in Germany.">
+
+    <meta property="og:title" content="German Seasonal Food Calendar">
+    <meta property="og:description" content="Find out what vegetables, fruits, and salads are in season in Germany.">
+
+    <meta property="og:url" content="https://xintamosaik.github.io/fresh/">
+    <meta name="twitter:title" content="German Seasonal Food Calendar">
+    <meta name="twitter:description" content="Find out what's fresh and regional in Germany.">
+    
     <title>Just fresh</title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>
-        German seasonal food calendar
-    </h1>
+    <hgroup>
+        <h1>
+            German seasonal food calendar
+        </h1>
+        <h2 id="language">
+            Language
+            <button id="languageToggle" value="en" onclick="switchLanguage(event)">EN</button>
+            <button id="languageToggle" value="de" onclick="switchLanguage(event)">DE</button>
+        </h2>
+
+    </hgroup>
+
+
     <h2>Vegetables</h2>
 
     <output id="vegetables"></output>
