@@ -10,7 +10,19 @@ let lang = navigator.language.startsWith("de") ? "de" : "en";
 
 function switchLanguage(event) {
     lang = event.target.value
-    refresh();
+    refreshComplete();
+}
+
+function translateWords() {
+    const translatables = document.querySelectorAll("[data-i18n]")
+    console.log(translatables)
+    Object.values(translatables).forEach(translateable => {
+        const keyword = translateable.dataset.i18n
+        console.log(keyword)
+        console.log(i18n[keyword])
+        console.log(i18n[keyword][lang])
+        translateable.innerText = i18n[keyword][lang]
+    })
 }
 
 /**
@@ -110,6 +122,7 @@ const refreshComplete = () => {
 
     window.toggleMonthSelector.innerHTML = selectedMonthName(selectedDate);
     refreshMontSelector()
+    translateWords()
     displayCategory(vegetables, window.vegetables, selectedMonth, lang);
     displayCategory(fruits, window.fruits, selectedMonth, lang);
     displayCategory(salads, window.salads, selectedMonth, lang);

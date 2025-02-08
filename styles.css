@@ -6,7 +6,7 @@ body {
     font-family: sans-serif;
     line-height: 1.6;
     padding: 1rem;
-    width: min(100%, 60ch);
+    max-width: 60ch;
     margin: 0 auto;
  
 }
@@ -30,17 +30,12 @@ output {
     margin-bottom: 2rem;
 }
 
-#language {
+#region, #language, #month {
     display: flex;
     justify-content: space-between;
     gap: 1ch;
 }
 
-#month {
-    display: flex;
-    justify-content: space-between;
-    gap: 1ch;
-}
 
 #monthPopover div{
     display:flex;
@@ -49,7 +44,7 @@ output {
     padding: 1ch;
 }
 
-button {
+button, .button-like {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     font-weight: bold;
@@ -57,9 +52,15 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
+    
+}
+
+button {
     cursor: pointer;
 }
+
 
 button:hover {
     background: deeppink;
 }
+

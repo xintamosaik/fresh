@@ -503,6 +503,18 @@ const salads = {
 };
 
 const i18n = {
+    header: {
+        de: "Säsonaler Nahrunsmittelkalender",
+        en: "Seasonal food calendar",
+    },
+    region: {
+        de: "Region",
+        en: "Region"
+    },
+    location: {
+        de: "Deutschland",
+        en: "Germany"
+    },
     language: {
         de: "Sprache",
         en: "Language",
