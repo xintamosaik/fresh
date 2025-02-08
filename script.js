@@ -56,6 +56,8 @@ function selectMonth(event) {
     selectedDate.setMonth(event.target.value - 1)
     selectedMonth = selectedDate.getMonth() + 1
     refreshMonth()
+
+    window.monthPopover.hidePopover()
 }
 
 
@@ -63,12 +65,10 @@ const refreshMontSelector = () => {
     window.monthPopoverContainer.innerHTML = ''
 
     Object.entries(months).forEach(([key, value]) => {
-        console.log(key, value);
-
+    
         const currentDate = new Date()
         currentDate.setMonth(value - 1)
-        console.log(currentDate)
-
+    
         const monthButton = document.createElement('button')
         monthButton.value = value
         monthButton.innerText = selectedMonthName(currentDate)
