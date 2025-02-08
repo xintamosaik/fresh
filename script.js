@@ -508,7 +508,7 @@ const currentMonthName = new Date().toLocaleString('en-US', { month: 'long' });
 const getFresh = (category, month, lang) => Object.values(category).filter(item => item.fresh.includes(month)).map(item => item.name[lang]);
 const getRegional = (category, month, lang) => Object.values(category).filter(item => item.regional && item.regional.includes(month)).map(item => item.name[lang]);
 
-let lang= "de";
+const lang = window.navigator.language.split('-')[0];
 const whenDOMLoaded = () => {
     const vegetableOutput = window.vegetables;
     const freshVeggies = getFresh(vegetables, currentMonth, lang);
